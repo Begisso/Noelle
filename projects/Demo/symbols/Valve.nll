@@ -1,0 +1,110 @@
+{
+  "format": "noelle-display",
+  "version": 1,
+  "name": "Valve",
+  "size": [
+    60,
+    50
+  ],
+  "background": "transparent",
+  "aliases": {
+    "Valve": "Valve1"
+  },
+  "objects": [
+    {
+      "id": "l",
+      "type": "polygon",
+      "points": [
+        [
+          2,
+          6
+        ],
+        [
+          30,
+          25
+        ],
+        [
+          2,
+          44
+        ]
+      ],
+      "fill": "#59616c",
+      "stroke": "#111",
+      "sw": 1.5,
+      "dyn": {
+        "fill": {
+          "expr": "{{<#Valve#>.Open}}",
+          "type": "bool",
+          "on": "#2ebd5f",
+          "off": "#c9303a"
+        }
+      },
+      "actions": [
+        {
+          "on": "click",
+          "type": "toggle",
+          "tag": "<#Valve#>.Open",
+          "confirm": "Toggle <#Valve#>?",
+          "role": "operator"
+        }
+      ]
+    },
+    {
+      "id": "r",
+      "type": "polygon",
+      "points": [
+        [
+          58,
+          6
+        ],
+        [
+          30,
+          25
+        ],
+        [
+          58,
+          44
+        ]
+      ],
+      "fill": "#59616c",
+      "stroke": "#111",
+      "sw": 1.5,
+      "dyn": {
+        "fill": {
+          "expr": "{{<#Valve#>.Open}}",
+          "type": "bool",
+          "on": "#2ebd5f",
+          "off": "#c9303a"
+        }
+      },
+      "actions": [
+        {
+          "on": "click",
+          "type": "toggle",
+          "tag": "<#Valve#>.Open",
+          "confirm": "Toggle <#Valve#>?",
+          "role": "operator"
+        }
+      ]
+    },
+    {
+      "id": "stem",
+      "type": "rect",
+      "x": 27,
+      "y": 0,
+      "w": 6,
+      "h": 25,
+      "fill": "#9aa3ad",
+      "stroke": "#111",
+      "actions": [
+        {
+          "on": "click",
+          "type": "toggle",
+          "tag": "<#Valve#>.Open",
+          "confirm": "Toggle <#Valve#>?",
+          "role": "operator"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Document><SW.Types.PlcStruct ID="0"><AttributeList>
+<Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5"><Section Name="None">
+  <Member Name="Run" Datatype="Bool" /><Member Name="Speed" Datatype="Real" />
+</Section></Sections></Interface><Name>UDT_Motor</Name></AttributeList></SW.Types.PlcStruct></Document>

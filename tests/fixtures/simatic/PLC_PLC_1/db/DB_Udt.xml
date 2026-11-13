@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Document><SW.Blocks.GlobalDB ID="0"><AttributeList>
+<Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5"><Section Name="Static">
+  <Member Name="Flag" Datatype="Bool" />
+  <Member Name="M1" Datatype="&quot;UDT_Motor&quot;" />
+  <Member Name="Pumps" Datatype="Array[0..1] of &quot;UDT_Motor&quot;" />
+  <Member Name="After" Datatype="Int" />
+</Section></Sections></Interface>
+<MemoryLayout>Standard</MemoryLayout><Name>DB_Udt</Name><Number>12</Number></AttributeList></SW.Blocks.GlobalDB></Document>

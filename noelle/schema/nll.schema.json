@@ -1,0 +1,7 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Noelle file (.nll): display, symbol or project",
+  "if": { "properties": { "format": { "const": "noelle-project" } }, "required": ["format"] },
+  "then": { "$ref": "nll-project.schema.json" },
+  "else": { "$ref": "nll-display.schema.json" }
+}

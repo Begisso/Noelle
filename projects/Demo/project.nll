@@ -1,0 +1,63 @@
+{
+  "format": "noelle-project",
+  "version": 1,
+  "name": "Demo",
+  "startDisplay": "displays/Main.nll",
+  "server": {
+    "host": "127.0.0.1",
+    "port": 8800,
+    "flush_ms": 100
+  },
+  "historian": {
+    "url": "http://192.168.70.100:5000"
+  },
+  "security": {
+    "enabled": false,
+    "guest_role": "viewer"
+  },
+  "logger": {
+    "enabled": true
+  },
+  "alarms": {
+    "sound": true
+  },
+  "devices": [
+    {
+      "name": "PLC1",
+      "type": "modbus",
+      "host": "127.0.0.1",
+      "port": 5020,
+      "unit": 1,
+      "poll_ms": 500,
+      "note": "example Modbus TCP device"
+    },
+    {
+      "name": "S7_1500",
+      "type": "s7",
+      "host": "192.168.0.1",
+      "rack": 0,
+      "slot": 1,
+      "poll_ms": 250,
+      "note": "example S7 device"
+    },
+    {
+      "name": "UA",
+      "type": "opcua",
+      "endpoint": "opc.tcp://localhost:4840",
+      "publish_ms": 250
+    },
+    {
+      "name": "DataHub",
+      "type": "opcda",
+      "server": "Cogent.DataHub.1",
+      "rate_ms": 250
+    },
+    {
+      "name": "DH_TCP",
+      "type": "datahub",
+      "host": "127.0.0.1",
+      "port": 4502,
+      "domain": "default"
+    }
+  ]
+}

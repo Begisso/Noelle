@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Document><SW.Tags.PlcTagTable ID="0"><AttributeList><Name>Default tag table</Name></AttributeList><ObjectList>
+<SW.Tags.PlcTag ID="1" CompositionName="Tags"><AttributeList><DataTypeName>Bool</DataTypeName><LogicalAddress>%I0.3</LogicalAddress><Name>StartButton</Name></AttributeList></SW.Tags.PlcTag>
+<SW.Tags.PlcTag ID="2" CompositionName="Tags"><AttributeList><DataTypeName>Real</DataTypeName><LogicalAddress>%MD20</LogicalAddress><Name>Setpoint</Name></AttributeList></SW.Tags.PlcTag>
+</ObjectList></SW.Tags.PlcTagTable></Document>

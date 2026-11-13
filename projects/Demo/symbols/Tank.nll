@@ -1,0 +1,79 @@
+{
+  "format": "noelle-display",
+  "version": 1,
+  "name": "Tank",
+  "size": [
+    140,
+    220
+  ],
+  "background": "transparent",
+  "aliases": {
+    "Tank": "Tank1"
+  },
+  "objects": [
+    {
+      "id": "shell",
+      "type": "rect",
+      "x": 4,
+      "y": 10,
+      "w": 132,
+      "h": 200,
+      "rx": 14,
+      "fill": "#3b4350",
+      "stroke": "#151a20",
+      "sw": 2,
+      "gradient": "0,#2c333d,#5a6575,#2c333d",
+      "dyn": {
+        "level": {
+          "expr": "{{<#Tank#>.Level}}",
+          "in": [
+            0,
+            100
+          ],
+          "dir": "up",
+          "color": "#2f8fe0"
+        }
+      }
+    },
+    {
+      "id": "lvl",
+      "type": "value",
+      "x": 30,
+      "y": 95,
+      "w": 80,
+      "h": 28,
+      "expr": "{{<#Tank#>.Level}}",
+      "fmt": "0.0",
+      "units": "%",
+      "fs": 15,
+      "color": "#ffffff",
+      "fill": "rgba(0,0,0,.45)",
+      "stroke": "none",
+      "align": "center",
+      "valign": "middle",
+      "font": "Consolas",
+      "rx": 4
+    },
+    {
+      "id": "hi",
+      "type": "text",
+      "x": 4,
+      "y": 0,
+      "w": 132,
+      "h": 14,
+      "text": "HI",
+      "fs": 11,
+      "color": "#ff6b6b",
+      "align": "center",
+      "valign": "middle",
+      "dyn": {
+        "visible": {
+          "expr": "{{<#Tank#>.Level}} > 85"
+        },
+        "blink": {
+          "expr": "{{<#Tank#>.Level}} > 95"
+        }
+      }
+    }
+  ]
+}

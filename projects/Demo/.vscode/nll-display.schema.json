@@ -1,0 +1,87 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Noelle display (.gfd)",
+  "type": "object",
+  "required": ["format", "objects"],
+  "properties": {
+    "format": { "const": "noelle-display" },
+    "version": { "type": "integer" },
+    "name": { "type": "string" },
+    "size": { "type": "array", "items": { "type": "number" }, "minItems": 2, "maxItems": 2, "description": "[width, height]" },
+    "background": { "type": "string", "description": "CSS color" },
+    "grid": { "type": "number" },
+    "aliases": { "type": "object", "additionalProperties": { "type": "string" }, "description": "default values of local aliases <#Name#>" },
+    "script": { "type": "string", "description": "display script, e.g. scripts/Main.js (ES module)" },
+    "onOpen": { "$ref": "#/definitions/actions" },
+    "onClose": { "$ref": "#/definitions/actions" },
+    "objects": { "type": "array", "items": { "$ref": "#/definitions/object" } }
+  },
+  "definitions": {
+    "expr": { "type": "string", "description": "expression with {{tag}} references, e.g. {{Tank1.Level}} > 80 or {{modbus:PLC1/40001:F}}" },
+    "color": { "type": "string", "description": "#rrggbb, rgba(), named color or 'none'" },
+    "object": {
+      "type": "object",
+      "required": ["id", "type"],
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "enum": ["rect", "ellipse", "line", "polyline", "polygon", "pipe", "arc", "text", "value", "input", "button", "image", "bar", "led", "gauge", "slider", "toggle", "trend", "histtrend", "alarms", "group", "symbol"] },
+        "x": { "type": "number" }, "y": { "type": "number" }, "w": { "type": "number" }, "h": { "type": "number" },
+        "points": { "type": "array", "items": { "type": "array", "items": { "type": "number" } } },
+        "rot": { "type": "number" }, "opacity": { "type": "number" },
+        "fill": { "$ref": "#/definitions/color" }, "stroke": { "$ref": "#/definitions/color" }, "sw": { "type": "number" },
+        "text": { "type": "string" }, "fs": { "type": "number" }, "font": { "type": "string" }, "color": { "$ref": "#/definitions/color" },
+        "align": { "enum": ["left", "center", "right"] }, "valign": { "enum": ["top", "middle", "bottom"] },
+        "expr": { "$ref": "#/definitions/expr" }, "tag": { "type": "string", "description": "tag reference without {{ }}" },
+        "fmt": { "type": "string", "description": "number format: 0.00, #,##0, %d, %.2f, hex, time ..." },
+        "src": { "type": "string" },
+        "aliases": { "type": "object", "additionalProperties": { "type": "string" } },
+        "children": { "type": "array", "items": { "$ref": "#/definitions/object" } },
+        "tooltip": { "type": "string" },
+        "locked": { "type": "boolean" }, "hidden": { "type": "boolean" },
+        "dyn": {
+          "type": "object",
+          "properties": {
+            "fill": { "$ref": "#/definitions/colordyn" }, "stroke": { "$ref": "#/definitions/colordyn" }, "color": { "$ref": "#/definitions/colordyn" },
+            "visible": { "type": "object", "properties": { "expr": { "$ref": "#/definitions/expr" }, "invert": { "type": "boolean" } } },
+            "blink": { "type": "object", "properties": { "expr": { "$ref": "#/definitions/expr" }, "fast": { "type": "boolean" } } },
+            "text": { "type": "object", "properties": { "expr": { "$ref": "#/definitions/expr" }, "fmt": { "type": "string" }, "units": { "type": "string" } } },
+            "x": { "$ref": "#/definitions/lindyn" }, "y": { "$ref": "#/definitions/lindyn" }, "rot": { "$ref": "#/definitions/lindyn" },
+            "scale": { "$ref": "#/definitions/lindyn" }, "opacity": { "$ref": "#/definitions/lindyn" },
+            "level": { "type": "object", "properties": { "expr": { "$ref": "#/definitions/expr" }, "in": { "type": "array" }, "dir": { "enum": ["up", "down", "left", "right"] }, "color": { "$ref": "#/definitions/color" } } },
+            "enabled": { "type": "object", "properties": { "expr": { "$ref": "#/definitions/expr" } } },
+            "animate": { "type": "object", "description": "groups: cycle child frames while expr is true", "properties": { "expr": { "$ref": "#/definitions/expr" }, "ms": { "type": "number" }, "offFrame": { "type": "integer" } } }
+          }
+        },
+        "actions": { "$ref": "#/definitions/actions" }
+      }
+    },
+    "colordyn": {
+      "type": "object",
+      "properties": {
+        "expr": { "$ref": "#/definitions/expr" },
+        "type": { "enum": ["bool", "range", "map", "blend"] },
+        "on": { "type": "string" }, "off": { "type": "string" },
+        "stops": { "type": "array", "description": "[[minValue, color], ...]" },
+        "map": { "type": "object", "description": "{\"value\": color}" },
+        "min": { "type": "number" }, "max": { "type": "number" }, "from": { "type": "string" }, "to": { "type": "string" },
+        "default": { "type": "string" }, "bad": { "type": "string", "description": "color on bad quality" }
+      }
+    },
+    "lindyn": { "type": "object", "properties": { "expr": { "$ref": "#/definitions/expr" }, "in": { "type": "array" }, "out": { "type": "array" } } },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type"],
+        "properties": {
+          "on": { "enum": ["click", "down", "up", "dblclick"] },
+          "type": { "enum": ["write", "toggle", "input", "open", "close", "back", "forward", "script", "py", "aliasSet", "ack", "recipe", "url", "login", "logout", "historian"] },
+          "tag": { "type": "string" }, "value": { "type": "string" },
+          "display": { "type": "string" }, "target": { "enum": ["main", "popup", "window"] },
+          "aliases": { "type": "object" }, "fn": { "type": "string" }, "args": {},
+          "confirm": { "type": "string" }, "role": { "enum": ["viewer", "operator", "engineer", "admin"] }
+        }
+      }
+    }
+  }
+}

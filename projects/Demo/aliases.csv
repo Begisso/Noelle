@@ -1,0 +1,9 @@
+﻿Set,Alias,Value
+Default,Line,1
+Default,Pump,Pump1
+Default,Tank,Tank1
+Default,Valve,Valve1
+Line2,Line,2
+Line2,Pump,Pump2
+Line2,Tank,Tank2
+Line2,Valve,Valve2

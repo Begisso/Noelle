@@ -1,0 +1,18 @@
+﻿Name,Address,Description,Units,Format,RawLo,RawHi,EngLo,EngHi,Deadband,ReadOnly,Default,Log,HiHi,Hi,Lo,LoLo,AlarmDeadband,Digital,Priority,Message,Group
+Tank1.Level,"sim:Sine(5,98,90)",Tank 1 level,%,0.0,,,,,0.05,1,,change,95,85,10,,1,,,Tank 1 level,Tanks
+Tank2.Level,"sim:Triangle(0,100,140)",Tank 2 level,%,0.0,,,,,,1,,change,,90,,,1,,,Tank 2 level,Tanks
+Temp1,"sim:Walk(20,80,0.6)",Temperature,°C,0.0,,,,,0.05,1,,1000,,70,,,2,,600,High temperature,Process
+Flow1,"=({{Tank1.Level}} * 1.8 if {{Pump1.Run}} else 0) + {{sim:Noise(0,1.5)}}",Flow (expression tag),m³/h,0.0,,,,,,1,,,,,,,,,,,Process
+Pump1.Run,,Pump 1 running (memory),,,,,,,,,0,change,,,,,,,,,Pumps
+Pump1.Fault,,Pump 1 fault,,,,,,,,,0,change,,,,,,1,900,Pump 1 FAULT,Pumps
+Pump1.Speed,mem:Pump1Speed=75,Pump 1 speed,%,0.0,,,,,,,,,,,,,,,,,Pumps
+Pump1.Hours,mem:Pump1Hours,Pump 1 run hours,h,0.00,,,,,,1,,,,,,,,,,,Pumps
+Pump2.Run,,Pump 2 running,,,,,,,,,1,,,,,,,,,,Pumps
+Pump2.Fault,,Pump 2 fault,,,,,,,,,0,,,,,,,1,900,Pump 2 FAULT,Pumps
+Pump2.Speed,mem:Pump2Speed=40,Pump 2 speed,%,0.0,,,,,,,,,,,,,,,,,Pumps
+Pump2.Hours,mem:Pump2Hours,Pump 2 run hours,h,0.00,,,,,,1,,,,,,,,,,,Pumps
+Valve1.Open,mem:Valve1Open=1,Valve 1 open,,,,,,,,,,change,,,,,,,,,Valves
+Valve2.Open,mem:Valve2Open=0,Valve 2 open,,,,,,,,,,,,,,,,,,,Valves
+Setpoint,mem:Setpoint=50,Level setpoint,%,0.0,,,,,,,,change,,,,,,,,,Process
+PLC1.Counts,modbus:PLC1/40001,Example raw Modbus register scaled 0..27648 -> 0..100,%,0.0,0,27648,0,100,,,,,,,,,,,,,Examples
+S7.Speed,s7:S7_1500/DB10.DBD4,Example S7 REAL,rpm,0,,,,,,,,,,,,,,,,,Examples

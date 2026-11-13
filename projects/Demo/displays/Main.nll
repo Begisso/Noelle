@@ -1,0 +1,786 @@
+{
+  "format": "noelle-display",
+  "version": 1,
+  "name": "Overview",
+  "size": [
+    1280,
+    720
+  ],
+  "background": "#2b2f36",
+  "aliases": {},
+  "script": "scripts/Main.js",
+  "objects": [
+    {
+      "id": "header",
+      "type": "rect",
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 58,
+      "fill": "#1d2127",
+      "stroke": "none"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "x": 16,
+      "y": 12,
+      "w": 420,
+      "h": 34,
+      "text": "Noelle demo — Line <#Line#>",
+      "fs": 22,
+      "color": "#e6e9ee",
+      "align": "left",
+      "valign": "middle",
+      "fill": "none",
+      "fw": true
+    },
+    {
+      "id": "nav_Overview",
+      "type": "button",
+      "x": 600,
+      "y": 12,
+      "w": 130,
+      "h": 34,
+      "text": "Overview",
+      "fs": 14,
+      "color": "#fff",
+      "fill": "#2d4f7c",
+      "stroke": "#1d2733",
+      "rx": 4,
+      "align": "center",
+      "valign": "middle",
+      "style": "3d",
+      "actions": [
+        {
+          "on": "click",
+          "type": "open",
+          "display": "displays/Main.nll"
+        }
+      ]
+    },
+    {
+      "id": "nav_Trends",
+      "type": "button",
+      "x": 740,
+      "y": 12,
+      "w": 130,
+      "h": 34,
+      "text": "Trends",
+      "fs": 14,
+      "color": "#fff",
+      "fill": "#2d4f7c",
+      "stroke": "#1d2733",
+      "rx": 4,
+      "align": "center",
+      "valign": "middle",
+      "style": "3d",
+      "actions": [
+        {
+          "on": "click",
+          "type": "open",
+          "display": "displays/Trends.nll"
+        }
+      ]
+    },
+    {
+      "id": "nav_Alarms",
+      "type": "button",
+      "x": 880,
+      "y": 12,
+      "w": 130,
+      "h": 34,
+      "text": "Alarms",
+      "fs": 14,
+      "color": "#fff",
+      "fill": "#2d4f7c",
+      "stroke": "#1d2733",
+      "rx": 4,
+      "align": "center",
+      "valign": "middle",
+      "style": "3d",
+      "actions": [
+        {
+          "on": "click",
+          "type": "open",
+          "display": "displays/Alarms.nll"
+        }
+      ]
+    },
+    {
+      "id": "clock",
+      "type": "value",
+      "x": 1100,
+      "y": 15,
+      "w": 160,
+      "h": 28,
+      "expr": "{{sys:DateTime}}",
+      "fmt": "",
+      "fs": 14,
+      "color": "#aab2bd",
+      "fill": "none",
+      "stroke": "none",
+      "align": "right",
+      "valign": "middle"
+    },
+    {
+      "id": "pipe1",
+      "type": "pipe",
+      "points": [
+        [
+          230,
+          330
+        ],
+        [
+          330,
+          330
+        ],
+        [
+          330,
+          470
+        ],
+        [
+          470,
+          470
+        ]
+      ],
+      "stroke": "#7c8794",
+      "sw": 14,
+      "flow": "{{Pump1.Run}}",
+      "flowColor": "#7fd3ff"
+    },
+    {
+      "id": "pipe2",
+      "type": "pipe",
+      "points": [
+        [
+          550,
+          470
+        ],
+        [
+          700,
+          470
+        ],
+        [
+          700,
+          300
+        ],
+        [
+          800,
+          300
+        ]
+      ],
+      "stroke": "#7c8794",
+      "sw": 14,
+      "flow": "{{Pump1.Run}} && {{Valve1.Open}}",
+      "flowColor": "#7fd3ff"
+    },
+    {
+      "id": "tank1",
+      "type": "symbol",
+      "x": 90,
+      "y": 200,
+      "w": 140,
+      "h": 220,
+      "src": "symbols/Tank.nll",
+      "aliases": {
+        "Tank": "Tank1"
+      }
+    },
+    {
+      "id": "tank2",
+      "type": "symbol",
+      "x": 800,
+      "y": 170,
+      "w": 140,
+      "h": 220,
+      "src": "symbols/Tank.nll",
+      "aliases": {
+        "Tank": "Tank2"
+      }
+    },
+    {
+      "id": "pump1",
+      "type": "symbol",
+      "x": 470,
+      "y": 430,
+      "w": 80,
+      "h": 80,
+      "src": "symbols/Pump.nll",
+      "aliases": {
+        "Pump": "Pump1"
+      }
+    },
+    {
+      "id": "valve1",
+      "type": "symbol",
+      "x": 640,
+      "y": 445,
+      "w": 60,
+      "h": 50,
+      "src": "symbols/Valve.nll",
+      "aliases": {
+        "Valve": "Valve1"
+      }
+    },
+    {
+      "id": "lt1",
+      "type": "text",
+      "x": 90,
+      "y": 430,
+      "w": 140,
+      "h": 22,
+      "text": "Tank 1",
+      "fs": 14,
+      "color": "#e6e9ee",
+      "align": "center",
+      "valign": "middle",
+      "fill": "none"
+    },
+    {
+      "id": "lt2",
+      "type": "text",
+      "x": 800,
+      "y": 400,
+      "w": 140,
+      "h": 22,
+      "text": "Tank 2",
+      "fs": 14,
+      "color": "#e6e9ee",
+      "align": "center",
+      "valign": "middle",
+      "fill": "none"
+    },
+    {
+      "id": "lp1",
+      "type": "text",
+      "x": 455,
+      "y": 515,
+      "w": 110,
+      "h": 22,
+      "text": "Pump 1",
+      "fs": 14,
+      "color": "#e6e9ee",
+      "align": "center",
+      "valign": "middle",
+      "fill": "none"
+    },
+    {
+      "id": "lv1",
+      "type": "text",
+      "x": 620,
+      "y": 500,
+      "w": 100,
+      "h": 22,
+      "text": "Valve 1",
+      "fs": 14,
+      "color": "#e6e9ee",
+      "align": "center",
+      "valign": "middle",
+      "fill": "none"
+    },
+    {
+      "id": "panel",
+      "type": "rect",
+      "x": 990,
+      "y": 80,
+      "w": 270,
+      "h": 330,
+      "rx": 6,
+      "fill": "#22272e",
+      "stroke": "#3a414b",
+      "shadow": true
+    },
+    {
+      "id": "ph",
+      "type": "text",
+      "x": 1005,
+      "y": 88,
+      "w": 240,
+      "h": 26,
+      "text": "Process values",
+      "fs": 15,
+      "color": "#e6e9ee",
+      "align": "left",
+      "valign": "middle",
+      "fill": "none",
+      "fw": true
+    },
+    {
+      "id": "l_t",
+      "type": "text",
+      "x": 1005,
+      "y": 122,
+      "w": 130,
+      "h": 26,
+      "text": "Temperature",
+      "fs": 14,
+      "color": "#e6e9ee",
+      "align": "left",
+      "valign": "middle",
+      "fill": "none"
+    },
+    {
+      "id": "v_t",
+      "type": "value",
+      "x": 1140,
+      "y": 122,
+      "w": 110,
+      "h": 28,
+      "expr": "{{Temp1}}",
+      "fmt": "0.0",
+      "units": "°C",
+      "fs": 15,
+      "color": "#7ef0a0",
+      "fill": "#14171b",
+      "stroke": "#3a414b",
+      "align": "right",
+      "valign": "middle",
+      "font": "Consolas",
+      "dyn": {
+        "color": {
+          "expr": "{{Temp1}}",
+          "type": "range",
+          "stops": [
+            [
+              0,
+              "#7ef0a0"
+            ],
+            [
+              60,
+              "#f0b429"
+            ],
+            [
+              70,
+              "#ff5a5a"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "l_f",
+      "type": "text",
+      "x": 1005,
+      "y": 156,
+      "w": 130,
+      "h": 26,
+      "text": "Flow",
+      "fs": 14,
+      "color": "#e6e9ee",
+      "align": "left",
+      "valign": "middle",
+      "fill": "none"
+    },
+    {
+      "id": "v_f",
+      "type": "value",
+      "x": 1140,
+      "y": 156,
+      "w": 110,
+      "h": 28,
+      "expr": "{{Flow1}}",
+      "fmt": "0.0",
+      "units": "m³/h",
+      "fs": 15,
+      "color": "#7ef0a0",
+      "fill": "#14171b",
+      "stroke": "#3a414b",
+      "align": "right",
+      "valign": "middle",
+      "font": "Consolas"
+    },
+    {
+      "id": "l_s",
+      "type": "text",
+      "x": 1005,
+      "y": 190,
+      "w": 130,
+      "h": 26,
+      "text": "Setpoint",
+      "fs": 14,
+      "color": "#e6e9ee",
+      "align": "left",
+      "valign": "middle",
+      "fill": "none"
+    },
+    {
+      "id": "sp",
+      "type": "input",
+      "x": 1140,
+      "y": 190,
+      "w": 110,
+      "h": 28,
+      "tag": "Setpoint",
+      "fmt": "0.0",
+      "units": "%",
+      "min": 0,
+      "max": 100,
+      "fs": 15,
+      "color": "#fff",
+      "fill": "#1d3046",
+      "stroke": "#4b7bb8",
+      "align": "right",
+      "valign": "middle",
+      "font": "Consolas"
+    },
+    {
+      "id": "l_c",
+      "type": "text",
+      "x": 1005,
+      "y": 224,
+      "w": 130,
+      "h": 26,
+      "text": "Counter (py)",
+      "fs": 14,
+      "color": "#e6e9ee",
+      "align": "left",
+      "valign": "middle",
+      "fill": "none"
+    },
+    {
+      "id": "v_c",
+      "type": "value",
+      "x": 1140,
+      "y": 224,
+      "w": 110,
+      "h": 28,
+      "expr": "{{mem:Counter}}",
+      "fmt": "0",
+      "units": "",
+      "fs": 15,
+      "color": "#7ef0a0",
+      "fill": "#14171b",
+      "stroke": "#3a414b",
+      "align": "right",
+      "valign": "middle",
+      "font": "Consolas"
+    },
+    {
+      "id": "bar_t",
+      "type": "bar",
+      "x": 1005,
+      "y": 262,
+      "w": 34,
+      "h": 130,
+      "expr": "{{Temp1}}",
+      "min": 0,
+      "max": 100,
+      "dir": "up",
+      "barColor": "#ff8c42",
+      "fill": "#14171b",
+      "stroke": "#3a414b",
+      "ticks": true
+    },
+    {
+      "id": "g1",
+      "type": "gauge",
+      "x": 1060,
+      "y": 258,
+      "w": 140,
+      "h": 140,
+      "expr": "{{Flow1}}",
+      "min": 0,
+      "max": 200,
+      "fmt": "0",
+      "units": "m³/h",
+      "ranges": "150,180,#f0b429;180,200,#e5484d",
+      "fill": "#1b1f24",
+      "stroke": "#3a414b",
+      "color": "#e6e9ee",
+      "needle": "#ff5a36"
+    },
+    {
+      "id": "led_alm",
+      "type": "led",
+      "x": 1214,
+      "y": 262,
+      "w": 30,
+      "h": 30,
+      "expr": "{{sys:AlarmsUnacked}} > 0",
+      "on": "#ff3b3b",
+      "off": "#3a3f46",
+      "stroke": "#111",
+      "blinkOn": true
+    },
+    {
+      "id": "l_alm",
+      "type": "text",
+      "x": 1205,
+      "y": 294,
+      "w": 50,
+      "h": 20,
+      "text": "alarm",
+      "fs": 11,
+      "color": "#8b949e",
+      "align": "center",
+      "valign": "middle",
+      "fill": "none"
+    },
+    {
+      "id": "b_start",
+      "type": "button",
+      "x": 300,
+      "y": 600,
+      "w": 120,
+      "h": 40,
+      "text": "Start pump",
+      "fs": 14,
+      "color": "#fff",
+      "fill": "#23803f",
+      "stroke": "#1d2733",
+      "rx": 4,
+      "align": "center",
+      "valign": "middle",
+      "style": "3d",
+      "actions": [
+        {
+          "on": "click",
+          "type": "write",
+          "tag": "Pump1.Run",
+          "value": "1",
+          "role": "operator"
+        }
+      ]
+    },
+    {
+      "id": "b_stop",
+      "type": "button",
+      "x": 430,
+      "y": 600,
+      "w": 120,
+      "h": 40,
+      "text": "Stop pump",
+      "fs": 14,
+      "color": "#fff",
+      "fill": "#a12b33",
+      "stroke": "#1d2733",
+      "rx": 4,
+      "align": "center",
+      "valign": "middle",
+      "style": "3d",
+      "actions": [
+        {
+          "on": "click",
+          "type": "write",
+          "tag": "Pump1.Run",
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "id": "b_fault",
+      "type": "button",
+      "x": 560,
+      "y": 600,
+      "w": 120,
+      "h": 40,
+      "text": "Simulate fault",
+      "fs": 14,
+      "color": "#fff",
+      "fill": "#8a5a00",
+      "stroke": "#1d2733",
+      "rx": 4,
+      "align": "center",
+      "valign": "middle",
+      "style": "3d",
+      "actions": [
+        {
+          "on": "click",
+          "type": "write",
+          "tag": "Pump1.Fault",
+          "value": "1",
+          "confirm": "Simulate a pump fault?"
+        }
+      ]
+    },
+    {
+      "id": "b_face",
+      "type": "button",
+      "x": 690,
+      "y": 600,
+      "w": 140,
+      "h": 40,
+      "text": "Pump faceplate",
+      "fs": 14,
+      "color": "#fff",
+      "fill": "#3d6fb6",
+      "stroke": "#1d2733",
+      "rx": 4,
+      "align": "center",
+      "valign": "middle",
+      "style": "3d",
+      "actions": [
+        {
+          "on": "click",
+          "type": "open",
+          "display": "symbols/PumpFaceplate.nll",
+          "target": "popup",
+          "aliases": {
+            "Pump": "Pump1"
+          }
+        }
+      ]
+    },
+    {
+      "id": "b_py",
+      "type": "button",
+      "x": 840,
+      "y": 600,
+      "w": 140,
+      "h": 40,
+      "text": "Python: reset",
+      "fs": 14,
+      "color": "#fff",
+      "fill": "#5a3d8a",
+      "stroke": "#1d2733",
+      "rx": 4,
+      "align": "center",
+      "valign": "middle",
+      "style": "3d",
+      "actions": [
+        {
+          "on": "click",
+          "type": "py",
+          "fn": "reset_counter"
+        }
+      ]
+    },
+    {
+      "id": "b_js",
+      "type": "button",
+      "x": 990,
+      "y": 600,
+      "w": 130,
+      "h": 40,
+      "text": "JS: highlight",
+      "fs": 14,
+      "color": "#fff",
+      "fill": "#5a3d8a",
+      "stroke": "#1d2733",
+      "rx": 4,
+      "align": "center",
+      "valign": "middle",
+      "style": "3d",
+      "actions": [
+        {
+          "on": "click",
+          "type": "script",
+          "fn": "highlight"
+        }
+      ]
+    },
+    {
+      "id": "tog",
+      "type": "toggle",
+      "x": 1140,
+      "y": 604,
+      "w": 70,
+      "h": 32,
+      "tag": "Valve1.Open",
+      "on": "#2ee66b",
+      "off": "#59616c",
+      "onValue": 1,
+      "offValue": 0
+    },
+    {
+      "id": "ltog",
+      "type": "text",
+      "x": 1214,
+      "y": 604,
+      "w": 60,
+      "h": 32,
+      "text": "Valve",
+      "fs": 13,
+      "color": "#e6e9ee",
+      "align": "left",
+      "valign": "middle",
+      "fill": "none"
+    },
+    {
+      "id": "b_rec",
+      "type": "button",
+      "x": 40,
+      "y": 600,
+      "w": 120,
+      "h": 40,
+      "text": "Recipe A",
+      "fs": 14,
+      "color": "#fff",
+      "fill": "#3a414b",
+      "stroke": "#1d2733",
+      "rx": 4,
+      "align": "center",
+      "valign": "middle",
+      "style": "3d",
+      "actions": [
+        {
+          "on": "click",
+          "type": "recipe",
+          "name": "RecipeA",
+          "mode": "apply"
+        }
+      ]
+    },
+    {
+      "id": "b_line",
+      "type": "button",
+      "x": 170,
+      "y": 600,
+      "w": 120,
+      "h": 40,
+      "text": "Line 1 / 2",
+      "fs": 14,
+      "color": "#fff",
+      "fill": "#3a414b",
+      "stroke": "#1d2733",
+      "rx": 4,
+      "align": "center",
+      "valign": "middle",
+      "style": "3d",
+      "actions": [
+        {
+          "on": "click",
+          "type": "aliasSet",
+          "set": "Line2"
+        }
+      ]
+    },
+    {
+      "id": "trend1",
+      "type": "trend",
+      "x": 300,
+      "y": 80,
+      "w": 380,
+      "h": 200,
+      "span": 120,
+      "pens": [
+        {
+          "expr": "{{Tank1.Level}}",
+          "name": "Tank 1 level",
+          "color": "#3fa7ff"
+        },
+        {
+          "expr": "{{Temp1}}",
+          "name": "Temp",
+          "color": "#ff8c42"
+        }
+      ],
+      "fill": "#111418",
+      "grid": "#2a3038",
+      "color": "#aab2bd",
+      "legend": true
+    },
+    {
+      "id": "alarms1",
+      "type": "alarms",
+      "x": 20,
+      "y": 655,
+      "w": 1240,
+      "h": 58,
+      "fill": "#14171b",
+      "color": "#dfe3e8",
+      "fs": 12
+    }
+  ]
+}

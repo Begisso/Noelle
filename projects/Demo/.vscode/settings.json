@@ -1,0 +1,16 @@
+{
+  "files.associations": {
+    "*.nll": "json"
+  },
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "*.nll"
+      ],
+      "url": "./.vscode/nll.schema.json"
+    }
+  ],
+  "python.analysis.extraPaths": [
+    "scripts"
+  ]
+}

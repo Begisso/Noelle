@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Document><Engineering version="V17" />
+<Hmi.Screen.Screen ID="0"><AttributeList><BackColor>182, 182, 182</BackColor><Height>480</Height><Name>Main</Name><Width>800</Width></AttributeList>
+<ObjectList><Hmi.Screen.ScreenLayer ID="1"><ObjectList>
+ <Hmi.Screen.Rectangle ID="2"><AttributeList><BackColor>0, 128, 0</BackColor><BorderColor>0, 0, 0</BorderColor><BorderWidth>2</BorderWidth><Height>50</Height><Left>10</Left><Name>Rect_1</Name><Top>20</Top><Width>100</Width></AttributeList>
+   <ObjectList><Hmi.Dynamic.VisibilityDynamic ID="3"><LinkList><Tag TargetID="@OpenLink"><Name>Start</Name></Tag></LinkList></Hmi.Dynamic.VisibilityDynamic></ObjectList></Hmi.Screen.Rectangle>
+ <Hmi.Screen.IOField ID="4"><AttributeList><Font>Tahoma, 15px, style=Bold</Font><FormatPattern>s999.99</FormatPattern><Height>30</Height><Left>200</Left><Mode>Input</Mode><Name>IO_Speed</Name><Top>20</Top><Width>120</Width></AttributeList>
+   <ObjectList><Hmi.Dynamic.TagConnectionDynamic ID="5"><AttributeList><PropertyName>ProcessValue</PropertyName></AttributeList><LinkList><Tag TargetID="@OpenLink"><Name>Speed</Name></Tag></LinkList></Hmi.Dynamic.TagConnectionDynamic></ObjectList></Hmi.Screen.IOField>
+ <Hmi.Screen.IOField ID="6"><AttributeList><Height>30</Height><Left>200</Left><Mode>Output</Mode><Name>IO_Level</Name><Top>60</Top><Width>120</Width></AttributeList>
+   <ObjectList><Hmi.Dynamic.TagConnectionDynamic ID="7"><AttributeList><PropertyName>ProcessValue</PropertyName></AttributeList><LinkList><Tag TargetID="@OpenLink"><Name>Level</Name></Tag></LinkList></Hmi.Dynamic.TagConnectionDynamic></ObjectList></Hmi.Screen.IOField>
+ <Hmi.Screen.TextField ID="8"><AttributeList><Height>20</Height><Left>10</Left><Name>Lbl</Name><Top>100</Top><Width>150</Width></AttributeList>
+   <ObjectList><MultilingualText CompositionName="Text"><ObjectList><MultilingualTextItem><AttributeList><Culture>en-US</Culture><Text>&lt;body&gt;&lt;p&gt;Pump speed&lt;/p&gt;&lt;/body&gt;</Text></AttributeList></MultilingualTextItem></ObjectList></MultilingualText></ObjectList></Hmi.Screen.TextField>
+</ObjectList></Hmi.Screen.ScreenLayer></ObjectList></Hmi.Screen.Screen></Document>

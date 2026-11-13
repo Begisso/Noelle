@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Document><Engineering version="V17" />
+<SW.Blocks.GlobalDB ID="0"><AttributeList>
+<Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5"><Section Name="Static">
+  <Member Name="Run" Datatype="Bool" /><Member Name="Fault" Datatype="Bool" />
+  <Member Name="Speed" Datatype="Real" /><Member Name="Count" Datatype="Int" />
+  <Member Name="Mode" Datatype="Byte" /><Member Name="Total" Datatype="DInt" />
+  <Member Name="Name" Datatype="String[10]" />
+</Section></Sections></Interface>
+<MemoryLayout>Standard</MemoryLayout><Name>DB_Std</Name><Number>10</Number></AttributeList></SW.Blocks.GlobalDB></Document>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Document><Hmi.Tag.TagTable ID="0"><AttributeList><Name>Default tag table</Name></AttributeList><ObjectList>
+<Hmi.Tag.Tag ID="1" CompositionName="Tags"><AttributeList><AccessMode>SymbolicAccess</AccessMode><Name>Speed</Name></AttributeList><LinkList><Connection TargetID="@OpenLink"><Name>HMI_Connection_1</Name></Connection><ControllerTag TargetID="@OpenLink"><Name>"DB_Std".Speed</Name></ControllerTag></LinkList></Hmi.Tag.Tag>
+<Hmi.Tag.Tag ID="2" CompositionName="Tags"><AttributeList><AccessMode>SymbolicAccess</AccessMode><Name>Level</Name></AttributeList><LinkList><Connection TargetID="@OpenLink"><Name>HMI_Connection_1</Name></Connection><ControllerTag TargetID="@OpenLink"><Name>"DB_Opt".Level</Name></ControllerTag></LinkList></Hmi.Tag.Tag>
+<Hmi.Tag.Tag ID="3" CompositionName="Tags"><AttributeList><AccessMode>SymbolicAccess</AccessMode><Name>Start</Name></AttributeList><LinkList><Connection TargetID="@OpenLink"><Name>HMI_Connection_1</Name></Connection><ControllerTag TargetID="@OpenLink"><Name>StartButton</Name></ControllerTag></LinkList></Hmi.Tag.Tag>
+<Hmi.Tag.Tag ID="4" CompositionName="Tags"><AttributeList><AccessMode>AbsoluteAccess</AccessMode><Address>%DB10.DBX0.1</Address><Name>Fault</Name></AttributeList><LinkList><Connection TargetID="@OpenLink"><Name>HMI_Connection_1</Name></Connection><DataType TargetID="@OpenLink"><Name>Bool</Name></DataType></LinkList></Hmi.Tag.Tag>
+<Hmi.Tag.Tag ID="5" CompositionName="Tags"><AttributeList><Name>Internal_1</Name></AttributeList><LinkList><Connection TargetID="@OpenLink"><Name>&lt;Internal tag&gt;</Name></Connection></LinkList></Hmi.Tag.Tag>
+</ObjectList></Hmi.Tag.TagTable></Document>

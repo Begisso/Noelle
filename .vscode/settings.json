@@ -1,0 +1,8 @@
+{
+  "files.associations": { "*.nll": "json" },
+  "json.schemas": [
+    { "fileMatch": ["*.nll"], "url": "./noelle/schema/nll.schema.json" }
+  ],
+  "python.defaultInterpreterPath": ".venv/Scripts/python.exe",
+  "python.analysis.extraPaths": ["projects/Demo/scripts"]
+}

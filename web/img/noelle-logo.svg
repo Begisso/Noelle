@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -10 430 472" width="430" height="472">
+  <title>Noelle</title>
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="0.35" y2="1">
+      <stop offset="0" stop-color="#fff1b8"/>
+      <stop offset="0.45" stop-color="#f4cf5a"/>
+      <stop offset="1" stop-color="#c99a2e"/>
+    </linearGradient>
+    <linearGradient id="goldFront" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#fff6cf" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#e8b84a" stop-opacity="0.55"/>
+    </linearGradient>
+  </defs>
+  <!-- golden body -->
+  <polygon points="205,8 392,125 393,343 205,440 14,340 14,120" fill="url(#gold)"/>
+  <!-- front faces, slightly lighter for depth -->
+  <polygon points="95,165 330,168 210,365" fill="url(#goldFront)"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- hidden (back) edges: light brown -->
+    <g stroke="#b08a52" stroke-width="10" stroke-opacity="0.85">
+      <path d="M205,95 L85,298 L330,300 Z"/>
+      <path d="M205,8 L205,95 M14,120 L205,95 M392,125 L205,95"/>
+      <path d="M14,120 L85,298 M14,340 L85,298 M205,440 L85,298"/>
+      <path d="M392,125 L330,300 M393,343 L330,300 M205,440 L330,300"/>
+    </g>
+    <!-- visible (front) edges: brown -->
+    <g stroke="#6b3f1d" stroke-width="12">
+      <polygon points="205,8 392,125 393,343 205,440 14,340 14,120"/>
+      <polygon points="95,165 330,168 210,365"/>
+      <path d="M205,8 L95,165 M205,8 L330,168"/>
+      <path d="M14,120 L95,165 M14,340 L95,165 M14,340 L210,365"/>
+      <path d="M392,125 L330,168 M393,343 L330,168 M393,343 L210,365"/>
+      <path d="M210,365 L205,440"/>
+    </g>
+  </g>
+</svg>

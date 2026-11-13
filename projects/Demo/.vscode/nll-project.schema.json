@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Noelle project (project.gfp)",
+  "type": "object",
+  "properties": {
+    "format": { "const": "noelle-project" },
+    "name": { "type": "string" },
+    "startDisplay": { "type": "string" },
+    "server": { "type": "object", "properties": { "host": { "type": "string" }, "port": { "type": "integer" }, "flush_ms": { "type": "integer", "description": "websocket update batching (ms)" } } },
+    "historian": { "type": "object", "properties": { "url": { "type": "string" }, "concurrency": { "type": "integer" } } },
+    "security": { "type": "object", "properties": { "enabled": { "type": "boolean" }, "guest_role": { "enum": ["viewer", "operator", "engineer", "admin"] } } },
+    "logger": { "type": "object", "properties": { "enabled": { "type": "boolean" } } },
+    "alarms": { "type": "object", "properties": { "sound": { "type": "boolean" } } },
+    "devices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "type"],
+        "properties": {
+          "name": { "type": "string" },
+          "type": { "enum": ["modbus", "s7", "opcua", "opcda", "datahub"] },
+          "host": { "type": "string" }, "port": { "type": "integer" }, "unit": { "type": "integer" }, "poll_ms": { "type": "integer" },
+          "framing": { "enum": ["tcp", "rtu"] }, "serial": { "type": "string" }, "baud": { "type": "integer" },
+          "word_swap": { "type": "boolean" }, "byte_swap": { "type": "boolean" }, "max_gap": { "type": "integer" }, "max_inflight": { "type": "integer" },
+          "rack": { "type": "integer" }, "slot": { "type": "integer" },
+          "endpoint": { "type": "string" }, "username": { "type": "string" }, "password": { "type": "string" }, "publish_ms": { "type": "integer" },
+          "server": { "type": "string", "description": "OPC DA ProgID, e.g. Cogent.DataHub.1" }, "node": { "type": "string" }, "rate_ms": { "type": "integer" },
+          "domain": { "type": "string" }
+        }
+      }
+    }
+  }
+}

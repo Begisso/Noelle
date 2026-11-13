@@ -1,0 +1,251 @@
+{
+  "format": "noelle-display",
+  "version": 1,
+  "name": "Pump faceplate",
+  "size": [
+    320,
+    250
+  ],
+  "background": "#22272e",
+  "aliases": {
+    "Pump": "Pump1"
+  },
+  "objects": [
+    {
+      "id": "bg",
+      "type": "rect",
+      "x": 0,
+      "y": 0,
+      "w": 320,
+      "h": 250,
+      "fill": "#22272e",
+      "stroke": "none"
+    },
+    {
+      "id": "t1",
+      "type": "text",
+      "x": 12,
+      "y": 10,
+      "w": 296,
+      "h": 26,
+      "text": "Pump <#Pump#>",
+      "fs": 18,
+      "color": "#e6e9ee",
+      "align": "left",
+      "valign": "middle",
+      "fill": "none",
+      "fw": true
+    },
+    {
+      "id": "l1",
+      "type": "text",
+      "x": 12,
+      "y": 48,
+      "w": 110,
+      "h": 26,
+      "text": "State",
+      "fs": 14,
+      "color": "#e6e9ee",
+      "align": "left",
+      "valign": "middle",
+      "fill": "none"
+    },
+    {
+      "id": "st",
+      "type": "text",
+      "x": 130,
+      "y": 48,
+      "w": 176,
+      "h": 26,
+      "text": "",
+      "fs": 15,
+      "color": "#fff",
+      "align": "center",
+      "valign": "middle",
+      "fill": "#59616c",
+      "rx": 3,
+      "dyn": {
+        "text": {
+          "expr": "iif({{<#Pump#>.Fault}}, 'FAULT', iif({{<#Pump#>.Run}}, 'RUNNING', 'STOPPED'))"
+        },
+        "fill": {
+          "expr": "iif({{<#Pump#>.Fault}}, 2, iif({{<#Pump#>.Run}}, 1, 0))",
+          "type": "map",
+          "map": {
+            "0": "#59616c",
+            "1": "#2ebd5f",
+            "2": "#c9303a"
+          }
+        }
+      }
+    },
+    {
+      "id": "l2",
+      "type": "text",
+      "x": 12,
+      "y": 84,
+      "w": 110,
+      "h": 26,
+      "text": "Speed",
+      "fs": 14,
+      "color": "#e6e9ee",
+      "align": "left",
+      "valign": "middle",
+      "fill": "none"
+    },
+    {
+      "id": "spd",
+      "type": "input",
+      "x": 130,
+      "y": 84,
+      "w": 100,
+      "h": 26,
+      "tag": "<#Pump#>.Speed",
+      "fmt": "0.0",
+      "units": "%",
+      "min": 0,
+      "max": 100,
+      "fs": 15,
+      "color": "#fff",
+      "fill": "#1d3046",
+      "stroke": "#4b7bb8",
+      "align": "right",
+      "valign": "middle",
+      "font": "Consolas"
+    },
+    {
+      "id": "sl",
+      "type": "slider",
+      "x": 12,
+      "y": 118,
+      "w": 296,
+      "h": 34,
+      "tag": "<#Pump#>.Speed",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "dir": "horizontal",
+      "fill": "#2a3038",
+      "barColor": "#3fa7ff"
+    },
+    {
+      "id": "start",
+      "type": "button",
+      "x": 12,
+      "y": 166,
+      "w": 92,
+      "h": 36,
+      "text": "START",
+      "fs": 14,
+      "color": "#fff",
+      "fill": "#23803f",
+      "stroke": "#1d2733",
+      "rx": 4,
+      "align": "center",
+      "valign": "middle",
+      "style": "3d",
+      "actions": [
+        {
+          "on": "click",
+          "type": "write",
+          "tag": "<#Pump#>.Run",
+          "value": "1",
+          "role": "operator"
+        }
+      ]
+    },
+    {
+      "id": "stop",
+      "type": "button",
+      "x": 114,
+      "y": 166,
+      "w": 92,
+      "h": 36,
+      "text": "STOP",
+      "fs": 14,
+      "color": "#fff",
+      "fill": "#a12b33",
+      "stroke": "#1d2733",
+      "rx": 4,
+      "align": "center",
+      "valign": "middle",
+      "style": "3d",
+      "actions": [
+        {
+          "on": "click",
+          "type": "write",
+          "tag": "<#Pump#>.Run",
+          "value": "0",
+          "role": "operator"
+        }
+      ]
+    },
+    {
+      "id": "reset",
+      "type": "button",
+      "x": 216,
+      "y": 166,
+      "w": 92,
+      "h": 36,
+      "text": "RESET",
+      "fs": 14,
+      "color": "#fff",
+      "fill": "#59616c",
+      "stroke": "#1d2733",
+      "rx": 4,
+      "align": "center",
+      "valign": "middle",
+      "style": "3d",
+      "actions": [
+        {
+          "on": "click",
+          "type": "write",
+          "tag": "<#Pump#>.Fault",
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "id": "close",
+      "type": "button",
+      "x": 216,
+      "y": 210,
+      "w": 92,
+      "h": 30,
+      "text": "Close",
+      "fs": 14,
+      "color": "#fff",
+      "fill": "#3a414b",
+      "stroke": "#1d2733",
+      "rx": 4,
+      "align": "center",
+      "valign": "middle",
+      "style": "3d",
+      "actions": [
+        {
+          "on": "click",
+          "type": "close"
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "type": "text",
+      "x": 12,
+      "y": 210,
+      "w": 200,
+      "h": 30,
+      "text": "Hours: ",
+      "fs": 13,
+      "color": "#8b949e",
+      "align": "left",
+      "valign": "middle",
+      "fill": "none",
+      "dyn": {
+        "text": {
+          "expr": "'Run hours: ' + fmt({{<#Pump#>.Hours}}, '0.00')"
+        }
+      }
+    }
+  ]
+}

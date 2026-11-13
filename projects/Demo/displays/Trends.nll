@@ -1,0 +1,187 @@
+{
+  "format": "noelle-display",
+  "version": 1,
+  "name": "Trends",
+  "size": [
+    1280,
+    720
+  ],
+  "background": "#2b2f36",
+  "aliases": {},
+  "objects": [
+    {
+      "id": "header",
+      "type": "rect",
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 58,
+      "fill": "#1d2127",
+      "stroke": "none"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "x": 16,
+      "y": 12,
+      "w": 420,
+      "h": 34,
+      "text": "Trends",
+      "fs": 22,
+      "color": "#e6e9ee",
+      "align": "left",
+      "valign": "middle",
+      "fill": "none",
+      "fw": true
+    },
+    {
+      "id": "nav_Overview",
+      "type": "button",
+      "x": 600,
+      "y": 12,
+      "w": 130,
+      "h": 34,
+      "text": "Overview",
+      "fs": 14,
+      "color": "#fff",
+      "fill": "#2d4f7c",
+      "stroke": "#1d2733",
+      "rx": 4,
+      "align": "center",
+      "valign": "middle",
+      "style": "3d",
+      "actions": [
+        {
+          "on": "click",
+          "type": "open",
+          "display": "displays/Main.nll"
+        }
+      ]
+    },
+    {
+      "id": "nav_Trends",
+      "type": "button",
+      "x": 740,
+      "y": 12,
+      "w": 130,
+      "h": 34,
+      "text": "Trends",
+      "fs": 14,
+      "color": "#fff",
+      "fill": "#2d4f7c",
+      "stroke": "#1d2733",
+      "rx": 4,
+      "align": "center",
+      "valign": "middle",
+      "style": "3d",
+      "actions": [
+        {
+          "on": "click",
+          "type": "open",
+          "display": "displays/Trends.nll"
+        }
+      ]
+    },
+    {
+      "id": "nav_Alarms",
+      "type": "button",
+      "x": 880,
+      "y": 12,
+      "w": 130,
+      "h": 34,
+      "text": "Alarms",
+      "fs": 14,
+      "color": "#fff",
+      "fill": "#2d4f7c",
+      "stroke": "#1d2733",
+      "rx": 4,
+      "align": "center",
+      "valign": "middle",
+      "style": "3d",
+      "actions": [
+        {
+          "on": "click",
+          "type": "open",
+          "display": "displays/Alarms.nll"
+        }
+      ]
+    },
+    {
+      "id": "rt",
+      "type": "trend",
+      "x": 20,
+      "y": 70,
+      "w": 1240,
+      "h": 300,
+      "span": 300,
+      "pens": [
+        {
+          "expr": "{{Tank1.Level}}",
+          "name": "Tank 1",
+          "color": "#3fa7ff"
+        },
+        {
+          "expr": "{{Tank2.Level}}",
+          "name": "Tank 2",
+          "color": "#2ee66b"
+        },
+        {
+          "expr": "{{Temp1}}",
+          "name": "Temp",
+          "color": "#ff8c42"
+        },
+        {
+          "expr": "{{Flow1}} / 2",
+          "name": "Flow/2",
+          "color": "#d36cff"
+        }
+      ],
+      "fill": "#111418",
+      "grid": "#2a3038",
+      "color": "#aab2bd",
+      "legend": true
+    },
+    {
+      "id": "hl",
+      "type": "text",
+      "x": 20,
+      "y": 380,
+      "w": 600,
+      "h": 26,
+      "text": "Historian trend (http historian) — pens configurable in the editor",
+      "fs": 14,
+      "color": "#8b949e",
+      "align": "left",
+      "valign": "middle",
+      "fill": "none"
+    },
+    {
+      "id": "ht",
+      "type": "histtrend",
+      "x": 20,
+      "y": 410,
+      "w": 1240,
+      "h": 290,
+      "span": 3600,
+      "live": true,
+      "pens": [
+        {
+          "desc": "1мс Расход Воздуха",
+          "color": "#3fa7ff"
+        },
+        {
+          "desc": "Давление ТЭЦ",
+          "color": "#ff8c42"
+        },
+        {
+          "desc": "Мельница №17 п",
+          "color": "#2ee66b"
+        }
+      ],
+      "fill": "#111418",
+      "grid": "#2a3038",
+      "color": "#aab2bd",
+      "legend": true
+    }
+  ]
+}

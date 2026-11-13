@@ -1,0 +1,104 @@
+{
+  "format": "noelle-display",
+  "version": 1,
+  "name": "Pump",
+  "size": [
+    80,
+    80
+  ],
+  "background": "transparent",
+  "aliases": {
+    "Pump": "Pump1"
+  },
+  "objects": [
+    {
+      "id": "body",
+      "type": "ellipse",
+      "x": 6,
+      "y": 6,
+      "w": 68,
+      "h": 68,
+      "fill": "#59616c",
+      "stroke": "#1a1d21",
+      "sw": 2,
+      "gradient": "",
+      "dyn": {
+        "fill": {
+          "expr": "{{<#Pump#>.Run}}",
+          "type": "bool",
+          "on": "#2ebd5f",
+          "off": "#59616c",
+          "bad": "#ff00ff"
+        },
+        "blink": {
+          "expr": "{{<#Pump#>.Fault}}"
+        }
+      },
+      "actions": [
+        {
+          "on": "click",
+          "type": "open",
+          "display": "symbols/PumpFaceplate.nll",
+          "target": "popup",
+          "aliases": {
+            "Pump": "<#Pump#>"
+          },
+          "title": "Pump <#Pump#>"
+        }
+      ],
+      "tooltip": "<#Pump#> — click for faceplate"
+    },
+    {
+      "id": "tri",
+      "type": "polygon",
+      "points": [
+        [
+          28,
+          22
+        ],
+        [
+          60,
+          40
+        ],
+        [
+          28,
+          58
+        ]
+      ],
+      "fill": "#e9edf2",
+      "stroke": "#1a1d21",
+      "sw": 1,
+      "actions": [
+        {
+          "on": "click",
+          "type": "open",
+          "display": "symbols/PumpFaceplate.nll",
+          "target": "popup",
+          "aliases": {
+            "Pump": "<#Pump#>"
+          },
+          "title": "Pump <#Pump#>"
+        }
+      ]
+    },
+    {
+      "id": "fault",
+      "type": "ellipse",
+      "x": 60,
+      "y": 2,
+      "w": 16,
+      "h": 16,
+      "fill": "#e5484d",
+      "stroke": "#000",
+      "dyn": {
+        "visible": {
+          "expr": "{{<#Pump#>.Fault}}"
+        },
+        "blink": {
+          "expr": "1",
+          "fast": true
+        }
+      }
+    }
+  ]
+}

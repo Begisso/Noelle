@@ -1,0 +1,144 @@
+{
+  "format": "noelle-display",
+  "version": 1,
+  "name": "Alarms",
+  "size": [
+    1280,
+    720
+  ],
+  "background": "#2b2f36",
+  "aliases": {},
+  "objects": [
+    {
+      "id": "header",
+      "type": "rect",
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 58,
+      "fill": "#1d2127",
+      "stroke": "none"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "x": 16,
+      "y": 12,
+      "w": 420,
+      "h": 34,
+      "text": "Alarms",
+      "fs": 22,
+      "color": "#e6e9ee",
+      "align": "left",
+      "valign": "middle",
+      "fill": "none",
+      "fw": true
+    },
+    {
+      "id": "nav_Overview",
+      "type": "button",
+      "x": 600,
+      "y": 12,
+      "w": 130,
+      "h": 34,
+      "text": "Overview",
+      "fs": 14,
+      "color": "#fff",
+      "fill": "#2d4f7c",
+      "stroke": "#1d2733",
+      "rx": 4,
+      "align": "center",
+      "valign": "middle",
+      "style": "3d",
+      "actions": [
+        {
+          "on": "click",
+          "type": "open",
+          "display": "displays/Main.nll"
+        }
+      ]
+    },
+    {
+      "id": "nav_Trends",
+      "type": "button",
+      "x": 740,
+      "y": 12,
+      "w": 130,
+      "h": 34,
+      "text": "Trends",
+      "fs": 14,
+      "color": "#fff",
+      "fill": "#2d4f7c",
+      "stroke": "#1d2733",
+      "rx": 4,
+      "align": "center",
+      "valign": "middle",
+      "style": "3d",
+      "actions": [
+        {
+          "on": "click",
+          "type": "open",
+          "display": "displays/Trends.nll"
+        }
+      ]
+    },
+    {
+      "id": "nav_Alarms",
+      "type": "button",
+      "x": 880,
+      "y": 12,
+      "w": 130,
+      "h": 34,
+      "text": "Alarms",
+      "fs": 14,
+      "color": "#fff",
+      "fill": "#2d4f7c",
+      "stroke": "#1d2733",
+      "rx": 4,
+      "align": "center",
+      "valign": "middle",
+      "style": "3d",
+      "actions": [
+        {
+          "on": "click",
+          "type": "open",
+          "display": "displays/Alarms.nll"
+        }
+      ]
+    },
+    {
+      "id": "ackall",
+      "type": "button",
+      "x": 1100,
+      "y": 12,
+      "w": 160,
+      "h": 34,
+      "text": "ACK ALL",
+      "fs": 14,
+      "color": "#fff",
+      "fill": "#a12b33",
+      "stroke": "#1d2733",
+      "rx": 4,
+      "align": "center",
+      "valign": "middle",
+      "style": "3d",
+      "actions": [
+        {
+          "on": "click",
+          "type": "ack"
+        }
+      ]
+    },
+    {
+      "id": "al",
+      "type": "alarms",
+      "x": 20,
+      "y": 70,
+      "w": 1240,
+      "h": 630,
+      "fill": "#14171b",
+      "color": "#dfe3e8",
+      "fs": 14
+    }
+  ]
+}

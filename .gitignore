@@ -1,0 +1,24 @@
+__pycache__/
+*.py[cod]
+.venv/
+build/
+*.spec
+
+# PyInstaller output: only the finished exe is kept in the repo
+dist/*
+!dist/Noelle.exe
+
+# per-project runtime state, logs, backups and user accounts
+projects/*/runtime/
+projects/*/logs/
+projects/*/.history/
+projects/*/security.json
+
+# plant-derived data (imported GraphWorX displays, their images, import test projects) stays local
+projects/Demo/displays/imported/
+projects/Demo/images/
+projects/ImportTest/
+projects/MnemoImport/
+
+# scratch screenshots
+/exe_edit.png

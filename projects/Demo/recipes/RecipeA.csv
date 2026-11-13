@@ -1,0 +1,4 @@
+﻿Tag,Value,Description
+Setpoint,65,Level setpoint
+Pump1.Speed,80,Pump speed
+Valve1.Open,1,Open valve
