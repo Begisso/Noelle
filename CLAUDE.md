@@ -4,7 +4,7 @@ Noelle is an HMI/SCADA graphics editor and runtime, similar to GraphWorX. A Pyth
 
 - `README.md` is the end-user documentation. Update it when user-visible behavior changes.
 - `HISTORY.md` is the change log. **Add an entry for every change**, in the same commit as the change.
-- Git: https://github.com/Begisso/Noelle (public, branch `main`). Commit as the repo-local identity (Begisso, GitHub noreply address), and commit or push only when the user asks. `dist/Noelle.exe` is committed, so commit it again after every rebuild. Plant-derived data is git-ignored on purpose and must never be committed: `projects/Demo/displays/imported/`, `projects/Demo/images/`, `projects/ImportTest/`, `projects/MnemoImport/`, the `.history/` folders (they hold the original GraphWorX files).
+- Git: https://github.com/Begisso/Noelle (public, branch `main`). Commit as the repo-local identity (Begisso, GitHub noreply address), and commit or push only when the user asks. `dist/Noelle.exe` is committed, so commit it again after every rebuild. Plant-derived data is git-ignored on purpose and must never be committed: `projects/Demo/displays/imported/`, `projects/Demo/images/`, `projects/ImportTest/`, `projects/MnemoImport/`, the `.history/` folders (they hold backups of the imported displays).
 - `.claude/skills/noelle/SKILL.md` covers running, headless UI checks with screenshots, tests and the exe build. Follow it to verify changes.
 
 ## Layout
@@ -53,5 +53,6 @@ Noelle is an HMI/SCADA graphics editor and runtime, similar to GraphWorX. A Pyth
 - Frontend style is dense: one-line methods, short names, the `el()`/`svg()` helpers from `util.js`. Match the surrounding code.
 - Editor zoom: `Editor.autoFit` (on by default and on every open) keeps the display fitted to the canvas through a `ResizeObserver`. Zooming by hand (Ctrl+wheel, +/−) turns it off; Fit or Ctrl+0 turns it back on.
 - No PLCs are reachable in development, so `[PLC1] connect failed` / `[S7_1500] connect failed` is normal. Test with `sim:` and `mem:` refs.
-- The historian (`http://192.168.70.100:5000`) is on the user's plant network and slow (~20 s per pen-day). Don't hammer it.
+- The historian is on the user's plant network and slow (~20 s per pen-day), so don't hammer it. Its URL lives only in the user's own `project.nll`. **Never write it (or any plant address) into tracked files.** The repo's Demo has `"historian": {"url": ""}`.
+- Running Noelle through `__main__` (the exe, or `python -m noelle`) overwrites `lastProject` in `%LOCALAPPDATA%\Noelle\settings.json`. Back that file up before a test run and restore it afterwards, or the user's exe opens your scratch copy.
 - The `gf` / `GF_` prefixes (`gf.aliasSet` localStorage key, `GF_SERVER_URL`, `.gfd`/`.gfp`) come from the old name. Keep them for compatibility.

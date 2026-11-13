@@ -87,7 +87,7 @@ Expressions are JavaScript, plus `iif`, `bit`, `scale`, `clamp`, `fmt`, `round`,
 
 ## Historian viewer
 
-The viewer works against `http://192.168.70.100:5000` (`/get_groups`, `/get_subgroups`, `/get_descriptions`, `/search_tree`, `/chart_data`). It has a lazy tree, server-side search, pens with colors, quick ranges, a custom range, follow-now, wheel zoom, drag pan, Shift+drag box zoom, a cursor readout, min/max/avg statistics, and CSV/PNG export. It also appears as the *Historian trend* object inside displays.
+The viewer works against the HTTP historian set in `project.nll` (`"historian": {"url": "http://<host>:<port>"}`). It uses `/get_groups`, `/get_subgroups`, `/get_descriptions`, `/search_tree` and `/chart_data`. It has a lazy tree, server-side search, pens with colors, quick ranges, a custom range, follow-now, wheel zoom, drag pan, Shift+drag box zoom, a cursor readout, min/max/avg statistics, and CSV/PNG export. It also appears as the *Historian trend* object inside displays.
 
 The upstream server is slow for older data (measured about 20 s per pen-day). Noelle mitigates that:
 

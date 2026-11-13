@@ -4,6 +4,11 @@ Newest first. One entry per change: what changed and why, the files touched, how
 
 ## 2026-11-13
 
+### Historian address removed from the repo
+- The plant historian's address is gone from the README, CLAUDE.md, the `historian.py` docstring, the Demo defaults in `demo.py` and `projects/Demo/project.nll` (now `"historian": {"url": ""}`). Its URL belongs only in each user's own `project.nll`. New demo projects start without a historian, and the Historian page then says "no historian configured (project.nll: historian.url)".
+- Projects that already exist keep their own setting.
+- The address is still in the first commit on GitHub (rewriting published history needs your OK). The exe still has the old defaults compiled in until the next rebuild.
+
 ### Editor: displays fill the canvas by default
 - **Problem:** the editor fit the display once, at the moment the file opened. If the window was still sizing itself at that moment, the display stayed tiny (20 %) in the corner, and resizing the window never re-fit it.
 - **Now:** opening a display zooms it to fill the editor area and centers it. Fit mode follows window and panel resizes and switches back to the Editor page. Zooming by hand (Ctrl+wheel, +/−) leaves fit mode, and **Fit** or Ctrl+0 returns to it. The zoom is no longer rounded down to 5 % steps, and the padding around the display went from 40 px to 12 px.
@@ -13,7 +18,7 @@ Newest first. One entry per change: what changed and why, the files touched, how
 
 ### Git
 - Published as https://github.com/Begisso/Noelle (public, branch `main`). `dist/Noelle.exe` is committed, the same convention as Nilou.
-- Kept out of git via `.gitignore`: plant-derived data (imported GraphWorX displays and their images, `.history/` with the original `.gdf` files, the ImportTest and MnemoImport projects), project runtime/logs/accounts, and the build folders.
+- Kept out of git via `.gitignore`: plant-derived data (imported GraphWorX displays and their images, `.history/` backups including legacy-format copies of those displays, the ImportTest and MnemoImport projects), project runtime/logs/accounts, and the build folders.
 
 ### Docs and tooling for Claude
 - Added `CLAUDE.md` (codebase notes), this `HISTORY.md`, and the project skill `.claude/skills/noelle/` with `scripts/ui_check.py`. The script runs a headless screenshot and console check against a throwaway copy of a project.

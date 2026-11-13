@@ -23,6 +23,7 @@ All commands run from the repo root (`d:\Projects\Noelle`) with the venv Python,
 ## 2. Run it for real
 
 - From source: `.venv\Scripts\python -m noelle projects\Demo`. This opens an Edge `--app` window and quits about 20 s after the last window closes. Add `--no-browser` to only serve, then open the printed URL.
+- Each such run saves its project as `lastProject` in `%LOCALAPPDATA%\Noelle\settings.json`, and the user's Noelle.exe opens that project on its next start. Before any test run (exe or source) on a scratch copy, back that file up, then restore it. ui_check.py doesn't go through `__main__` and doesn't touch it.
 - Render one display to PNG: `.venv\Scripts\python -m noelle render projects\Demo displays/Main.nll out.png [--compare ref.png]`.
 
 ## 3. Tests

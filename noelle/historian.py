@@ -1,4 +1,4 @@
-"""HTTP historian client/proxy (Flask "Historian OP" at e.g. http://192.168.70.100:5000).
+"""HTTP historian client/proxy (Flask "Historian OP"; URL from project.nll historian.url).
 
 Upstream API (reverse engineered from /charts):
     GET /get_groups                         -> {"groups": [...]}

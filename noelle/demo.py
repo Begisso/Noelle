@@ -169,7 +169,7 @@ PROJECT = {
     "format": "noelle-project", "version": 1, "name": "Demo",
     "startDisplay": "displays/Main.nll",
     "server": {"host": "127.0.0.1", "port": 8800, "flush_ms": 100},
-    "historian": {"url": "http://192.168.70.100:5000"},
+    "historian": {"url": ""},
     "security": {"enabled": False, "guest_role": "viewer"},
     "logger": {"enabled": True},
     "alarms": {"sound": True},
